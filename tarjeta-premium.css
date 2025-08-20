@@ -70,9 +70,26 @@ body {
         radial-gradient(circle at 80% 20%, rgba(227, 102, 163, 0.04) 0%, transparent 50%);
 }
 
+/* .card-background::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    background-image: url('logo mariely.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    opacity: 0.03;
+    z-index: 1;
+} */
+
 .card-content {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     height: 100%;
     padding: 1.8rem;
     display: grid;
@@ -419,7 +436,7 @@ body {
     }
     
     .contact-section {
-        padding-left: 1.2rem;
+        /* padding-left: 1.2rem; */
         gap: 1rem;
     }
     
@@ -431,6 +448,12 @@ body {
     .logo-shadow {
         width: 60px;
         height: 60px;
+    }
+    
+    .card-background::after {
+        width: 100px;
+        height: 100px;
+        opacity: 0.025;
     }
 }
 
@@ -459,7 +482,7 @@ body {
     .contact-section {
         padding-left: 0;
         flex-direction: row;
-        justify-content: center;
+        /* justify-content: center; */
         gap: 1.5rem;
         margin-top: 0;
     }
@@ -525,6 +548,12 @@ body {
     .schedule-content {
         line-height: 1.2;
         font-size: 0.7rem;
+    }
+    
+    .card-background::after {
+        width: 80px;
+        height: 80px;
+        opacity: 0.02;
     }
 }
 
@@ -594,6 +623,12 @@ body {
     .back-logo-image {
         width: 30px;
         height: 30px;
+    }
+    
+    .card-background::after {
+        width: 70px;
+        height: 70px;
+        opacity: 0.015;
     }
 }
 
