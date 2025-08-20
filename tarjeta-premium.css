@@ -5,6 +5,13 @@
     box-sizing: border-box;
 }
 
+/* Asegurar que todo el contenido quede dentro de los contenedores */
+.business-card * {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
 body {
     font-family: 'Lato', sans-serif;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -29,13 +36,14 @@ body {
 .business-card {
     width: 400px;
     height: 240px;
-    border-radius: 24px;
+    border-radius: 20px;
     position: relative;
     overflow: hidden;
     box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.15),
-        0 8px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        0 15px 40px rgba(0, 0, 0, 0.12),
+        0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
 }
 
 .business-card:hover {
@@ -66,22 +74,23 @@ body {
     position: relative;
     z-index: 2;
     height: 100%;
-    padding: 2.5rem;
+    padding: 1.8rem;
     display: grid;
     grid-template-areas: 
         "logo main"
-        "decorative main"
-        "decorative contact";
+        "logo contact";
     grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr auto;
-    gap: 1.5rem;
+    grid-template-rows: 1fr auto;
+    gap: 1rem;
+    align-items: center;
 }
 
 /* Logo Section */
 .logo-section {
     grid-area: logo;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo-container {
@@ -89,24 +98,24 @@ body {
 }
 
 .logo-image {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #ffffff;
-    box-shadow: 0 8px 25px rgba(184, 69, 196, 0.2);
+    border: 2px solid #ffffff;
+    box-shadow: 0 6px 20px rgba(184, 69, 196, 0.25);
 }
 
 .logo-shadow {
     position: absolute;
-    top: 4px;
-    left: 4px;
-    width: 80px;
-    height: 80px;
+    top: 3px;
+    left: 3px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background: linear-gradient(135deg, #b845c4, #e366a3);
     z-index: -1;
-    opacity: 0.3;
+    opacity: 0.25;
 }
 
 /* Contenido principal */
@@ -114,20 +123,20 @@ body {
     grid-area: main;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding-left: 2rem;
+    justify-content: center;
+    padding-left: 1.5rem;
 }
 
 .doctor-info {
-    margin-bottom: auto;
+    margin-bottom: 0.8rem;
 }
 
 .doctor-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: 500;
-    line-height: 1.2;
-    margin-bottom: 1rem;
+    line-height: 1.1;
+    margin-bottom: 0.6rem;
 }
 
 .name-first {
@@ -143,56 +152,59 @@ body {
 }
 
 .specialties {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
 }
 
 .specialty-line {
-    width: 60px;
+    width: 45px;
     height: 2px;
     background: linear-gradient(90deg, #b845c4, #e366a3);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     border-radius: 1px;
 }
 
 .specialty-text {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #64748b;
     font-weight: 300;
-    letter-spacing: 0.5px;
-    line-height: 1.4;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
 }
 
 /* Sección de contacto */
 .contact-section {
     grid-area: contact;
     display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    padding-left: 2rem;
+    flex-direction: row;
+    gap: .9rem;
+    /* padding-left: 1.5rem; */
+    align-items: center;
 }
 
 .contact-item {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    font-size: 0.9rem;
+    gap: 0.5rem;
+    font-size: 0.8rem;
 }
 
 .contact-icon {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     background: linear-gradient(135deg, #fce7f3, #e879f9);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.75rem;
-    box-shadow: 0 2px 8px rgba(184, 69, 196, 0.15);
+    font-size: 0.7rem;
+    box-shadow: 0 2px 6px rgba(184, 69, 196, 0.15);
+    flex-shrink: 0;
 }
 
 .contact-text {
     color: #374151;
     font-weight: 400;
+    white-space: nowrap;
 }
 
 .phone .contact-text {
@@ -200,32 +212,9 @@ body {
     color: #1f2937;
 }
 
-/* Elementos decorativos */
+/* Elementos decorativos - simplificados */
 .decorative-elements {
-    grid-area: decorative;
-    position: relative;
-}
-
-.accent-circle {
-    position: absolute;
-    bottom: -20px;
-    left: -10px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #b845c4, #e366a3);
-    opacity: 0.1;
-}
-
-.accent-dot {
-    position: absolute;
-    top: 20px;
-    right: -5px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #e366a3;
-    opacity: 0.4;
+    display: none;
 }
 
 /* REVERSO DE LA TARJETA */
@@ -288,7 +277,7 @@ body {
     position: relative;
     z-index: 2;
     height: 100%;
-    padding: 2.5rem;
+    padding: 1.8rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -297,40 +286,40 @@ body {
 
 /* Servicios */
 .services-section {
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 .services-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 500;
     text-align: center;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .services-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
-    font-size: 0.85rem;
+    gap: 0.6rem;
+    font-size: 0.8rem;
 }
 
 .service-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
     font-weight: 300;
-    line-height: 1.3;
+    line-height: 1.2;
 }
 
 .service-bullet {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     background: #ffffff;
     border-radius: 50%;
     flex-shrink: 0;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
 }
 
 /* Horarios */
@@ -339,21 +328,22 @@ body {
 }
 
 .schedule-divider {
-    width: 80px;
+    width: 60px;
     height: 1px;
     background: rgba(255, 255, 255, 0.3);
-    margin: 0 auto 1rem;
+    margin: 0 auto 0.8rem;
     border-radius: 0.5px;
 }
 
 .schedule-content {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 300;
 }
 
 .schedule-line {
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
     opacity: 0.9;
+    line-height: 1.2;
 }
 
 .schedule-line strong {
@@ -364,19 +354,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    padding-top: 0.75rem;
+    gap: 0.4rem;
+    margin-top: 0.8rem;
+    padding-top: 0.6rem;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .emergency-icon {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .emergency-text {
     font-weight: 500;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
 }
 
 /* Logo trasero */
@@ -386,13 +376,13 @@ body {
 }
 
 .back-logo-image {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     object-fit: cover;
     opacity: 0.8;
     border: 2px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive */
@@ -400,26 +390,210 @@ body {
     .card-showcase {
         grid-template-columns: 1fr;
         gap: 2rem;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    
+    .card-showcase {
+        gap: 1.5rem;
+    }
+    
+    .business-card {
+        width: 100%;
+        max-width: 380px;
+        height: 220px;
+    }
+    
+    .card-content {
+        padding: 1.5rem;
+        gap: 0.8rem;
+    }
+    
+    .main-content {
+        padding-left: 1.2rem;
+    }
+    
+    .contact-section {
+        padding-left: 1.2rem;
+        gap: 1rem;
+    }
+    
+    .doctor-name {
+        font-size: 1.5rem;
+    }
+    
+    .logo-image,
+    .logo-shadow {
+        width: 60px;
+        height: 60px;
     }
 }
 
 @media (max-width: 480px) {
     .business-card {
-        width: 350px;
-        height: 210px;
+        width: 100%;
+        max-width: 340px;
+        height: 200px;
     }
     
     .card-content {
-        padding: 1.5rem;
+        padding: 1.2rem;
+        grid-template-areas: 
+            "logo main"
+            "contact contact";
+        grid-template-columns: auto 1fr;
+        grid-template-rows: 1fr auto;
+        gap: 0.8rem;
     }
     
-    .logo-image {
-        width: 60px;
-        height: 60px;
+    .main-content {
+        padding-left: 1rem;
+        justify-content: flex-start;
+    }
+    
+    .contact-section {
+        padding-left: 0;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 0;
+    }
+    
+    .logo-image,
+    .logo-shadow {
+        width: 50px;
+        height: 50px;
     }
     
     .doctor-name {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
+        margin-bottom: 0.4rem;
+        line-height: 1.1;
+    }
+    
+    .specialty-text {
+        font-size: 0.7rem;
+        line-height: 1.2;
+    }
+    
+    .specialty-line {
+        width: 35px;
+        margin-bottom: 0.3rem;
+    }
+    
+    .contact-item {
+        flex-direction: row;
+        gap: 0.4rem;
+    }
+    
+    .contact-text {
+        font-size: 0.75rem;
+        line-height: 1.1;
+    }
+    
+    .contact-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 0.6rem;
+    }
+    
+    .back-content {
+        padding: 1.2rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+    }
+    
+    .services-title {
+        font-size: 1rem;
+        line-height: 1.2;
+        margin-bottom: 0.6rem;
+    }
+    
+    .service-item {
+        line-height: 1.2;
+        font-size: 0.7rem;
+    }
+    
+    .schedule-content {
+        line-height: 1.2;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .business-card {
+        height: 180px;
+        max-width: 300px;
+    }
+    
+    .card-content {
+        padding: 1rem;
+        gap: 0.6rem;
+    }
+    
+    .doctor-name {
+        font-size: 1.1rem;
+        line-height: 1;
+        margin-bottom: 0.3rem;
+    }
+    
+    .logo-image,
+    .logo-shadow {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .contact-icon {
+        width: 18px;
+        height: 18px;
+        font-size: 0.55rem;
+    }
+    
+    .contact-text {
+        font-size: 0.65rem;
+        line-height: 1;
+    }
+    
+    .specialty-text {
+        font-size: 0.65rem;
+        line-height: 1.1;
+    }
+    
+    .specialty-line {
+        width: 30px;
+        margin-bottom: 0.2rem;
+    }
+    
+    .contact-section {
+        gap: 1rem;
+    }
+    
+    .services-title {
+        font-size: 0.9rem;
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+    }
+    
+    .service-item {
+        font-size: 0.65rem;
+        line-height: 1.1;
+    }
+    
+    .schedule-content {
+        font-size: 0.6rem;
+    }
+    
+    .back-logo-image {
+        width: 30px;
+        height: 30px;
     }
 }
 
