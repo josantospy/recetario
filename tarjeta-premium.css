@@ -1,0 +1,449 @@
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+/* Contenedor principal */
+.card-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 900px;
+    width: 100%;
+}
+
+/* Tarjeta base */
+.business-card {
+    width: 400px;
+    height: 240px;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.15),
+        0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.business-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.2),
+        0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* FRENTE DE LA TARJETA */
+.front-card {
+    background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(184, 69, 196, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(227, 102, 163, 0.04) 0%, transparent 50%);
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    padding: 2.5rem;
+    display: grid;
+    grid-template-areas: 
+        "logo main"
+        "decorative main"
+        "decorative contact";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 1.5rem;
+}
+
+/* Logo Section */
+.logo-section {
+    grid-area: logo;
+    display: flex;
+    align-items: flex-start;
+}
+
+.logo-container {
+    position: relative;
+}
+
+.logo-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ffffff;
+    box-shadow: 0 8px 25px rgba(184, 69, 196, 0.2);
+}
+
+.logo-shadow {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #b845c4, #e366a3);
+    z-index: -1;
+    opacity: 0.3;
+}
+
+/* Contenido principal */
+.main-content {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 2rem;
+}
+
+.doctor-info {
+    margin-bottom: auto;
+}
+
+.doctor-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.name-first {
+    color: #2c3e50;
+    display: block;
+    font-weight: 400;
+}
+
+.name-last {
+    color: #b845c4;
+    display: block;
+    font-weight: 600;
+}
+
+.specialties {
+    margin-bottom: 1.5rem;
+}
+
+.specialty-line {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #b845c4, #e366a3);
+    margin-bottom: 0.75rem;
+    border-radius: 1px;
+}
+
+.specialty-text {
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+}
+
+/* Sección de contacto */
+.contact-section {
+    grid-area: contact;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-left: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.contact-icon {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #fce7f3, #e879f9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    box-shadow: 0 2px 8px rgba(184, 69, 196, 0.15);
+}
+
+.contact-text {
+    color: #374151;
+    font-weight: 400;
+}
+
+.phone .contact-text {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* Elementos decorativos */
+.decorative-elements {
+    grid-area: decorative;
+    position: relative;
+}
+
+.accent-circle {
+    position: absolute;
+    bottom: -20px;
+    left: -10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #b845c4, #e366a3);
+    opacity: 0.1;
+}
+
+.accent-dot {
+    position: absolute;
+    top: 20px;
+    right: -5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #e366a3;
+    opacity: 0.4;
+}
+
+/* REVERSO DE LA TARJETA */
+.back-card {
+    position: relative;
+}
+
+.back-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #b845c4 0%, #c955d1 30%, #e366a3 70%, #f0a8c4 100%);
+}
+
+.geometric-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.1;
+}
+
+.pattern-circle {
+    position: absolute;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+}
+
+.circle-1 {
+    width: 120px;
+    height: 120px;
+    top: -30px;
+    right: -30px;
+}
+
+.circle-2 {
+    width: 60px;
+    height: 60px;
+    bottom: -15px;
+    left: -15px;
+}
+
+.pattern-triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 43px solid #ffffff;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%) rotate(30deg);
+    opacity: 0.6;
+}
+
+.back-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #ffffff;
+}
+
+/* Servicios */
+.services-section {
+    margin-bottom: 1rem;
+}
+
+.services-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 1.25rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 300;
+    line-height: 1.3;
+}
+
+.service-bullet {
+    width: 6px;
+    height: 6px;
+    background: #ffffff;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Horarios */
+.schedule-section {
+    text-align: center;
+}
+
+.schedule-divider {
+    width: 80px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 0 auto 1rem;
+    border-radius: 0.5px;
+}
+
+.schedule-content {
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+
+.schedule-line {
+    margin-bottom: 0.25rem;
+    opacity: 0.9;
+}
+
+.schedule-line strong {
+    font-weight: 400;
+}
+
+.emergency-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.emergency-icon {
+    font-size: 0.9rem;
+}
+
+.emergency-text {
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+/* Logo trasero */
+.back-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.back-logo-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    opacity: 0.8;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .card-showcase {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .business-card {
+        width: 350px;
+        height: 210px;
+    }
+    
+    .card-content {
+        padding: 1.5rem;
+    }
+    
+    .logo-image {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .doctor-name {
+        font-size: 1.6rem;
+    }
+}
+
+/* Impresión */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+    
+    .card-showcase {
+        display: block;
+        max-width: none;
+    }
+    
+    .business-card {
+        width: 3.5in;
+        height: 2in;
+        margin: 0.25in;
+        break-inside: avoid;
+        box-shadow: none;
+    }
+    
+    .business-card:hover {
+        transform: none;
+    }
+}
